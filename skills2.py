@@ -37,7 +37,9 @@ def common_items(list1, list2):
 
     print "These are the numbers these sets do have in common"
     common_elements = new_set.intersection(another_set)
-    print common_elements
+    
+    for item in common_elements:
+        print item
 
     # print "These are the numbers these two sets do not have in common"
     # uncommon_elements = new_set ^ another_set
@@ -61,23 +63,57 @@ def common_items2(list1, list2):
     
     numbers = {}
 
-    for entry in numbers:
-        numbers[entry]=numbers.get(list1[entry], list2[entry])
+    new_set = set(list1)
+    another_set=set(list2)
 
-    print "Here are two lists combined into a dictionary %r" % numbers
+    numbers = new_set.intersection(another_set)
+
+    list_of_numbers = list(numbers)
+
+    print "Here are two lists combined into a dictionary %r" % list_of_numbers
 
 common_items2(list1, list2)
 """
 Given a list of numbers, return list of number pairs that sum to zero
 """
 def sum_zero(list1):
+
     pass
+
+    # sum_to_zero = filter((lambda x : x+y = 0, list1)
+
+    # http://www.ardendertat.com/2011/09/17/programming-interview-questions-1-array-pair-sum/
 
 """
 Given a list of words, return a list of words with duplicates removed
 """
 def find_duplicates(words):
-    pass
+
+    all_words={}
+    unique_words = []
+
+    for entries in words:
+        word_count = all_words.get(entries, 0) + 1
+        all_words[entries]= word_count # review this and write from scratch again and again
+
+
+    print "Here are all the words %r" % all_words    
+
+    for items in all_words:
+        if all_words[items]==1:
+            unique_words.append(items)
+
+    print "Here are unique words %r" % unique_words    
+
+    # for items in enumerate(words):
+    #     if unique_words[items] in words
+    #     unique_words[items]=words[items]
+
+    # if     
+
+    # print unique_words
+
+find_duplicates(words)
 
 """
 Given a list of words, print the words in ascending order of length
@@ -85,8 +121,28 @@ Bonus: do it on a file instead of the list provided
 Bonus: print the words in alphabetical order in ascending order of length
 """
 def word_length(words):
-    pass
 
+    words_and_lengths = {}
+    alphabetized = {}
+    # word_length_counter = 0
+
+    for items in words:
+        word_length_counter = len(items)
+        words_and_lengths[items] = word_length_counter  
+    
+    print "Here's a list of words with lengths %s" % words_and_lengths 
+
+    # sorted(words_and_lengths, key = lambda x: x[1])
+
+    for entries in sorted(words_and_lengths):
+        alphabetized[entries]= words_and_lengths[entries]
+        sorted_by_length = sorted(words_and_lengths[entries])
+
+
+    print "Here's the alphabetized version %r" % alphabetized
+        
+    print "Here it is sorted by word length %r" %  sorted_by_length
+word_length(words)
 """
 Here's a table of English to Pirate translations
 English     Pirate
