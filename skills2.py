@@ -137,13 +137,10 @@ def word_length(words):
 
     # sorted(words_and_lengths, key = lambda x: x[1])
 
-    for keys in sorted(words_and_lengths):
-        alphabetized[keys]= words_and_lengths[keys]
-        print keys, alphabetized[keys]
+    alphabetized= sorted(words_and_lengths.iterkeys())
     
     print "This should be ordered:"
-    print sorted(alphabetized.values()) 
-
+    print alphabetized
 word_length(words)
 
 # http://stackoverflow.com/questions/16772071/sort-dict-by-value-python
