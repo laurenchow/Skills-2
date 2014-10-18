@@ -73,16 +73,6 @@ def common_items2(list1, list2):
     print "Here are two lists combined into a dictionary %r" % list_of_numbers
 
 common_items2(list1, list2)
-"""
-Given a list of numbers, return list of number pairs that sum to zero
-"""
-def sum_zero(list1):
-
-    pass
-
-    # sum_to_zero = filter((lambda x : x+y = 0, list1)
-
-    # http://www.ardendertat.com/2011/09/17/programming-interview-questions-1-array-pair-sum/
 
 """
 Given a list of words, return a list of words with duplicates removed
@@ -116,6 +106,21 @@ def find_duplicates(words):
 find_duplicates(words)
 
 """
+Given a list of numbers, return list of number pairs that sum to zero
+"""
+def sum_zero(list1):
+
+    zero_sums = []
+     
+    for items in list1:
+        zero_sums = filter(lambda x: x+items==0, zero_sums)
+
+    print "These numbers contain matches that sum to zero %s" % zero_sums   
+    # http://www.ardendertat.com/2011/09/17/programming-interview-questions-1-array-pair-sum/
+
+sum_zero(list1)
+
+"""
 Given a list of words, print the words in ascending order of length
 Bonus: do it on a file instead of the list provided
 Bonus: print the words in alphabetical order in ascending order of length
@@ -123,9 +128,7 @@ Bonus: print the words in alphabetical order in ascending order of length
 def word_length(words):
 
     words_and_lengths = {}
-    alphabetized = {}
-    # word_length_counter = 0
-
+    alphabetized = {} 
     for items in words:
         word_length_counter = len(items)
         words_and_lengths[items] = word_length_counter  
@@ -134,15 +137,17 @@ def word_length(words):
 
     # sorted(words_and_lengths, key = lambda x: x[1])
 
-    for entries in sorted(words_and_lengths):
-        alphabetized[entries]= words_and_lengths[entries]
-        sorted_by_length = sorted(words_and_lengths[entries])
+    for keys in sorted(words_and_lengths):
+        alphabetized[keys]= words_and_lengths[keys]
+        print keys, alphabetized[keys]
+    
+    print "This should be ordered:"
+    print sorted(alphabetized.values()) 
 
-
-    print "Here's the alphabetized version %r" % alphabetized
-        
-    print "Here it is sorted by word length %r" %  sorted_by_length
 word_length(words)
+
+# http://stackoverflow.com/questions/16772071/sort-dict-by-value-python
+
 """
 Here's a table of English to Pirate translations
 English     Pirate
